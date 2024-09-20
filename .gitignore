@@ -1,0 +1,48 @@
+# VS Code specific files
+.vscode/
+.DS_Store
+# Build artifacts
+build/
+bin/
+obj/
+*.o
+*.so
+*.dylib
+*.a
+*.lib
+
+# IDE-specific files
+*.suo
+*.user
+*.vcxproj
+*.vcxproj.filters
+*.sln
+
+# Compiler-generated files
+*.d
+*.pdb
+*.ilk
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Dependency management files
+vendor/
+node_modules/
+
+# CMake-generated files
+CMakeCache.txt
+CMakeFiles/
+
+# Other files to ignore
+*.log
+*.txt
+*.pdf
+*.docx
+*.xlsx
+*.ppt
+
+# Git specific files
+.git/
