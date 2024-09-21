@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.24.2/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.24.2/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/Cellar/cmake/3.24.2/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/Cellar/cmake/3.24.2/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.24.2/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.24.2/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/vihangifernando/Desktop/mollybet/CMakeFiles /Users/vihangifernando/Desktop/mollybet//CMakeFiles/progress.marks
@@ -128,6 +173,84 @@ molly_api_client: cmake_check_build_system
 molly_api_client/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/molly_api_client.dir/build.make CMakeFiles/molly_api_client.dir/build
 .PHONY : molly_api_client/fast
+
+#=============================================================================
+# Target rules for targets named zlib
+
+# Build rule for target.
+zlib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 zlib
+.PHONY : zlib
+
+# fast build rule for target.
+zlib/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/zlib-build/CMakeFiles/zlib.dir/build.make _deps/zlib-build/CMakeFiles/zlib.dir/build
+.PHONY : zlib/fast
+
+#=============================================================================
+# Target rules for targets named curl_uninstall
+
+# Build rule for target.
+curl_uninstall: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 curl_uninstall
+.PHONY : curl_uninstall
+
+# fast build rule for target.
+curl_uninstall/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/curl-build/CMakeFiles/curl_uninstall.dir/build.make _deps/curl-build/CMakeFiles/curl_uninstall.dir/build
+.PHONY : curl_uninstall/fast
+
+#=============================================================================
+# Target rules for targets named man
+
+# Build rule for target.
+man: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 man
+.PHONY : man
+
+# fast build rule for target.
+man/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/curl-build/docs/libcurl/CMakeFiles/man.dir/build.make _deps/curl-build/docs/libcurl/CMakeFiles/man.dir/build
+.PHONY : man/fast
+
+#=============================================================================
+# Target rules for targets named opts-man
+
+# Build rule for target.
+opts-man: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opts-man
+.PHONY : opts-man
+
+# fast build rule for target.
+opts-man/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/curl-build/docs/libcurl/opts/CMakeFiles/opts-man.dir/build.make _deps/curl-build/docs/libcurl/opts/CMakeFiles/opts-man.dir/build
+.PHONY : opts-man/fast
+
+#=============================================================================
+# Target rules for targets named libcurl_shared
+
+# Build rule for target.
+libcurl_shared: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libcurl_shared
+.PHONY : libcurl_shared
+
+# fast build rule for target.
+libcurl_shared/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/build.make _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/build
+.PHONY : libcurl_shared/fast
+
+#=============================================================================
+# Target rules for targets named cpr
+
+# Build rule for target.
+cpr: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cpr
+.PHONY : cpr
+
+# fast build rule for target.
+cpr/fast:
+	$(MAKE) $(MAKESILENT) -f cpr/cpr/CMakeFiles/cpr.dir/build.make cpr/cpr/CMakeFiles/cpr.dir/build
+.PHONY : cpr/fast
 
 src/HTTPClient.o: src/HTTPClient.cpp.o
 .PHONY : src/HTTPClient.o
@@ -232,8 +355,18 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... curl_uninstall"
+	@echo "... man"
+	@echo "... opts-man"
+	@echo "... cpr"
+	@echo "... libcurl_shared"
 	@echo "... molly_api_client"
+	@echo "... zlib"
 	@echo "... src/HTTPClient.o"
 	@echo "... src/HTTPClient.i"
 	@echo "... src/HTTPClient.s"

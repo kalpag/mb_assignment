@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     g++ cmake git libboost-all-dev libssl-dev \
-    libcurl4-openssl-dev
+    libcurl4-openssl-dev nlohmann-json3-dev
 
 # Install CPR
 RUN git clone --recurse-submodules https://github.com/whoshuu/cpr.git /cpr \
