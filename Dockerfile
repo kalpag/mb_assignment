@@ -26,4 +26,4 @@ WORKDIR /app/build
 RUN cmake .. && make
 
 # Command to run the client
-CMD ["./molly_api_client"]
+CMD ["./bin/molly_api_client"]
