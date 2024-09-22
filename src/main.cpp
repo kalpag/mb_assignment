@@ -6,33 +6,41 @@
 #include <boost/asio.hpp>
 #include <boost/asio/ssl.hpp>
 #include <boost/beast/websocket.hpp>
-#include <string>
+#include <cstdlib>
 
+int main(){
+    std::cout << "Mollybet client starting..." << std::endl;
 
-int main() 
-{
-    std::cout<<"mollybet client starting....."<<std::endl;
     try {
-        // Base URL for the Molly API
-        const std::string base_url = "https://api.mollybet.com";
+        // Step 1: Base URL for the Molly API
+        constexpr char base_url[] = "https://api.mollybet.com";
         
-        // WebSocket host and port for Molly API
-        const std::string ws_host = "api.mollybet.com";
-        const std::string ws_port = "443"; //secure WebSocket connection (wss)
+        // Step 2: WebSocket host and port for Molly API
+        constexpr char ws_host[] = "api.mollybet.com";
+        constexpr char ws_port[] = "443";  // Secure WebSocket connection (wss)
         
-        // Credentials (for the test environment provided)
-        const std::string username = "devinterview";
-        const std::string password = "OwAb6wrocirEv";
+        // Step 3: Load credentials (username and password) from environment variables
+        const char* username = std::getenv("MOLLYBET_USERNAME");
+        const char* password = std::getenv("MOLLYBET_PASSWORD");
 
-        // Initialize Molly API Client
+        // Fall back to hardcoded values if environment variables are not set
+        if (!username || !password) {
+            username = "devinterview";
+            password = "OwAb6wrocirEv";
+            std::cerr << "Warning: Using hardcoded credentials for login." << std::endl;
+        }
+
+        // Step 4: Initialize Molly API Client with base URL, WebSocket host, and port
         MollyAPIClient molly_api_client(base_url, ws_host, ws_port);
 
-        // Run the login, connect to WebSocket, and process messages
+        // Step 5: Run the client logic (login, connect to WebSocket, process messages)
         molly_api_client.run(username, password);
-    } catch (const std::exception& e) {
-        std::cerr << "Error: Main Method : " << e.what() << std::endl;
-        return 1;
+        
+        std::cout << "Mollybet client finished successfully." << std::endl;
+        return EXIT_SUCCESS;
+    } 
+    catch (const std::exception& e) {
+        std::cerr << "Error in main: " << e.what() << std::endl;
+        return EXIT_FAILURE;  // Exit with a failure code if an exception is caught
     }
-
-    return 0;
 }

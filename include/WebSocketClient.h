@@ -56,8 +56,8 @@ private:
     tcp::resolver resolver_; // Resolver for DNS lookup
     boost::asio::ssl::context ssl_ctx;
     boost::beast::websocket::stream<boost::asio::ssl::stream<boost::asio::ip::tcp::socket>> ws_;
-    std::string host_; // Host for the WebSocket connection
-    std::string port_; // Port for the WebSocket connection
+    const std::string host_; // Host for the WebSocket connection
+    const std::string port_; // Port for the WebSocket connection
 };
 
 #endif // WEBSOCKET_CLIENT_H

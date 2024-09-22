@@ -2,13 +2,15 @@
 #define HTTP_CLIENT_H
 
 #include <string>
+#include <optional>
 
 class HTTPClient {
 public:
     HTTPClient(const std::string& base_url);
 
     // Method to login and return a session token
-    std::string login(const std::string& username, const std::string& password);
+    //std::string login(const std::string& username, const std::string& password);
+    std::optional<std::string> login(const std::string& username, const std::string& password);
 
 private:
     std::string base_url_; // Base URL for API requests
