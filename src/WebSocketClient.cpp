@@ -14,6 +14,7 @@ using namespace std;
 // Connect to the WebSocket server using the session token
 void WebSocketClient::connect(const std::string& token) 
 {
+    
     // Resolve the DNS query to connect to the WebSocket server
     tcp::resolver::results_type results = resolver_.resolve(host_, port_);
     // Use the underlying TCP layer for connect

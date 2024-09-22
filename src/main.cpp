@@ -18,7 +18,7 @@ int main()
         
         // WebSocket host and port for Molly API
         const std::string ws_host = "api.mollybet.com";
-        const std::string ws_port = "443"; // Assuming secure WebSocket connection (wss)
+        const std::string ws_port = "443"; //secure WebSocket connection (wss)
         
         // Credentials (for the test environment provided)
         const std::string username = "devinterview";
@@ -30,7 +30,7 @@ int main()
         // Run the login, connect to WebSocket, and process messages
         molly_api_client.run(username, password);
     } catch (const std::exception& e) {
-        std::cerr << "Main Error: " << e.what() << std::endl;
+        std::cerr << "Error: Main Method : " << e.what() << std::endl;
         return 1;
     }
 

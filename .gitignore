@@ -5,6 +5,8 @@
 build/
 bin/
 obj/
+cpr/
+_deps/
 *.o
 *.so
 *.dylib

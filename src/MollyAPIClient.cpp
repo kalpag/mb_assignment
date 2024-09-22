@@ -11,7 +11,7 @@ void MollyAPIClient::run(const std::string& username, const std::string& passwor
     try{
          // Step 1: Login and retrieve session token
         std::string token = http_client_.login(username, password);
-        std::cout << "Logged in successfully. Token: " << token << std::endl;// remember to comment this: FFS
+        std::cout << "Logged in successfully. Token: " << token << std::endl;// remember to comment this: 
 
         // Step 2: Connect to the WebSocket using the token
         ws_client_.connect(token);
