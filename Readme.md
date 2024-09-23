@@ -102,10 +102,6 @@ Copy code
 
 To build and run the project using Docker:
 
-bash
-
-Copy code
-
 `docker build -t mollybet_client .`
 
 `docker run mollybet_client`
@@ -120,12 +116,13 @@ Docker Image on GitHub Packages
 The Docker image for this project is available on GitHub Packages and can be pulled and run for local development or deployment.
 
 Image Information
-Image URL: ghcr.io/kalpag/mb_assignment:v1.0
+Image URL: `ghcr.io/kalpag/mb_assignment:v1.0`
 Docker Repository: GitHub Packages
 Pulling the Docker Image
 To pull the Docker image from GitHub Packages, run the following command:
 
 `docker pull ghcr.io/kalpag/mb_assignment:v1.0`
+
 Make sure Docker is installed and running on your system.
 
 Running the Docker Image
@@ -138,7 +135,8 @@ Alternatively, the package can be retieved and run from the docker hub
 
 Use following commands to run it from CLI
 
-`docker pull kalpag/mb_assignment:v1.0`
-`docker run -it kalpag/mb_assignment:v1.0`
+`docker pull kalpag/mb_assignment:v1.0 `
+
+`docker run -it kalpag/mb_assignment:v1.0 `
 
 ##
