@@ -19,6 +19,8 @@ _deps/
 *.vcxproj
 *.vcxproj.filters
 *.sln
+.DS_Store
+*.cmake
 
 # Compiler-generated files
 *.d
