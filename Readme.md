@@ -110,4 +110,15 @@ Copy code
 
 `docker run mollybet_client`
 
+
+
+
+### **Docker Image is uploaded to the Docker Hub**
+Use following commands to run it from CLI
+
+docker pull kalpag/mb_assignment:v1.0
+docker run -it kalpag/mb_assignment:v1.0
+
+
+
 ##
