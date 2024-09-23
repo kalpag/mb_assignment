@@ -40,8 +40,6 @@ CMakeFiles/
 
 # Other files to ignore
 *.log
-*.txt
-*.pdf
 *.docx
 *.xlsx
 *.ppt
